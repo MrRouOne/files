@@ -1,0 +1,25 @@
+{
+    "name": "mrrouone/collect",
+    "description": "Module for working with files",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mrrouone",
+            "email": "azazpapa228@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4 | ^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "FileWork\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    }
+}
+
