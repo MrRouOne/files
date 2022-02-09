@@ -1,5 +1,5 @@
 {
-    "name": "mrrouone/collect",
+    "name": "mrrouone/files",
     "description": "Module for working with files",
     "type": "library",
     "license": "MIT",
@@ -22,4 +22,3 @@
         ]
     }
 }
-
