@@ -31,23 +31,29 @@ class FileWork
 
     public function rootToUpload(string $filename, string $path, string $flag): string
     {
-
+        # If you need to download a file to the same directory, use this
         if ($flag === 'this') {
             return $path . $this->getFileName($filename);
         }
-
+        # If you need to download a file to the directory above, use this,
+        # use "../" to raise it up, if necessary
         if ($flag === "out") {
             return "../" . $path . $this->getFileName($filename);
         }
         return "incorrect flag";
     }
 
-    public function upload(string $filename, string $path, string $flag): void
+    public function upload(string $filename, string $path, string $flag): string
     {
-        echo($this->rootToUpload($filename, $path, $flag));
+        return move_uploaded_file($this->getFileTempName("$filename"), $this->rootToUpload($filename, $path, $flag));
+    }
 
-        move_uploaded_file($this->getFileTempName("$filename"), $this->rootToUpload($filename, $path, $flag));
+    public function checkUpload(string $filename, string $path, string $flag): bool
+    {
+        if ($this->upload($filename, $path, $flag)) {
+            return 1;
+        }
+        return 0;
     }
 
 }
-
